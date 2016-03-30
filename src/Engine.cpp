@@ -1,15 +1,14 @@
 #include "Engine.h"
+#include <iostream>
 namespace Game
 {
 	Engine::Engine()
 	{
 		mainWindow = new sf::RenderWindow(sf::VideoMode(WINDOW_INITIAL_SIZE_WIDTH, WINDOW_INITIAL_SIZE_HEIGHT), WINDOW_TITLE);
-		loopThread = new std::thread(&Engine::loop, this);
-		loopThread->join();
-	}
+		mainWindow->setMouseCursorVisible(false);
+		resloader->initialize();
+		loop();
 
-	Engine::~Engine()
-	{
 
 	}
 
@@ -30,10 +29,5 @@ namespace Game
 			mainWindow->clear();
 			mainWindow->display();
 		}
-	}
-
-	void Engine::consoleLog(std::string message)
-	{
-		std::cout<<message<<'\n';
 	}
 }

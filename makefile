@@ -8,3 +8,6 @@ all: $(OBJ_FILES)
 
 obj/%.o: src/%.cpp
 	g++ -c -o $@ $^ -std=gnu++11
+
+clean:
+	rm $(OBJ_FILES)
