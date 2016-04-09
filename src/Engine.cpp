@@ -5,8 +5,9 @@ namespace Game
 	Engine::Engine()
 	{
 		mainWindow = new sf::RenderWindow(sf::VideoMode(WINDOW_INITIAL_SIZE_WIDTH, WINDOW_INITIAL_SIZE_HEIGHT), WINDOW_TITLE);
-		mainWindow->setMouseCursorVisible(false);
+		//mainWindow->setMouseCursorVisible(false); TEMPORARY, UNTILL CURSOR ART IS DONE
 		resloader->initialize();
+		interface->initialize(resloader);
 		loop();
 
 
@@ -27,6 +28,7 @@ namespace Game
 				}
 			}
 			mainWindow->clear();
+			interface->draw(mainWindow);
 			mainWindow->display();
 		}
 	}
